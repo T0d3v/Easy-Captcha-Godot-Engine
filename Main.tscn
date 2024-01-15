@@ -1,0 +1,152 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Font/arial_bold.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=2]
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_mipmaps = true
+use_filter = true
+extra_spacing_char = 7
+font_data = ExtResource( 2 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 323.0 ],
+"_edit_vertical_guides_": [ 512.0 ]
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -165.5
+margin_top = -79.0
+margin_right = 165.5
+margin_bottom = 79.0
+custom_constants/separation = 17
+alignment = 1
+
+[node name="ValidateCaptchaResul" type="Label" parent="VBoxContainer"]
+margin_right = 331.0
+margin_bottom = 23.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+margin_top = 40.0
+margin_right = 331.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 0, 60 )
+
+[node name="Captcha" type="Label" parent="VBoxContainer/ColorRect"]
+margin_left = 0.5
+margin_right = 331.5
+margin_bottom = 59.0
+rect_min_size = Vector2( 0, 40 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "AbCd45ki"
+align = 1
+valign = 1
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 45.0
+margin_top = 14.0
+margin_right = 47.0
+margin_bottom = 47.0
+rect_rotation = -7.30302
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 103.0
+margin_top = 39.0
+margin_right = 105.0
+margin_bottom = 72.0
+rect_rotation = 126.32
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect3" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 115.0
+margin_top = 43.0
+margin_right = 117.0
+margin_bottom = 76.0
+rect_rotation = 225.873
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect4" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 166.5
+margin_top = 46.0
+margin_right = 168.5
+margin_bottom = 79.0
+rect_rotation = 169.976
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect5" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 181.0
+margin_top = 20.0
+margin_right = 183.0
+margin_bottom = 53.0
+rect_rotation = 291.591
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect6" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 223.5
+margin_top = 40.0
+margin_right = 225.5
+margin_bottom = 73.0
+rect_rotation = 225.777
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect7" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 268.0
+margin_top = 45.0
+margin_right = 270.0
+margin_bottom = 78.0
+rect_rotation = 156.95
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect8" type="ColorRect" parent="VBoxContainer/ColorRect/Captcha"]
+margin_left = 274.0
+margin_top = 37.0
+margin_right = 276.0
+margin_bottom = 70.0
+rect_rotation = 249.622
+color = Color( 0, 0, 0, 1 )
+
+[node name="LineEdit" type="LineEdit" parent="VBoxContainer"]
+margin_top = 117.0
+margin_right = 331.0
+margin_bottom = 167.0
+rect_min_size = Vector2( 50, 50 )
+align = 1
+placeholder_text = "ENTER CAPTCHA"
+
+[node name="Validate" type="Button" parent="VBoxContainer"]
+margin_top = 184.0
+margin_right = 331.0
+margin_bottom = 204.0
+text = "VALIDATE CAPTCHA"
+
+[node name="RefreshCaptcha" type="Button" parent="."]
+margin_left = 691.0
+margin_top = 347.0
+margin_right = 785.0
+margin_bottom = 382.0
+text = "REFRESH"
+
+[connection signal="pressed" from="VBoxContainer/Validate" to="." method="_on_Validate_pressed"]
+[connection signal="pressed" from="RefreshCaptcha" to="." method="_on_RefreshCaptcha_pressed"]
